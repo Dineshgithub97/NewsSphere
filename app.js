@@ -17,10 +17,6 @@ const secondHalf = document.querySelector('.secondHalf');
 		}, 3000);
 
 
-function showDiv() {
-  document.querySelector('#hidden').style.display = "block";
-}
-
 const savedNews = [];
 const handleSavedNews = (savedItem) => {
   savedNews.push(savedItem);
