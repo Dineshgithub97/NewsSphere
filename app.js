@@ -29,7 +29,7 @@ const handleSavedNews = (savedItem) => {
 const getNews = async (category = "science") => {
   newsContainer.innerHTML = "";
   await fetch(`https://inshorts.deta.dev/news?category=${category}`)
-    .then((response) => await response.json())
+    .then((response) => response.json())
     .then((data) => {
       console.log("Data", data)
       data.data.forEach((newsItem) => {
