@@ -17,15 +17,6 @@ const secondHalf = document.querySelector('.secondHalf');
 		}, 3000);
 
 
-const savedNews = [];
-const handleSavedNews = (savedItem) => {
-  savedNews.push(savedItem);
-  console.log(savedNews);
-  alert("News saved")
-  saveNews(savedItem);
-
-}
-
 const getNews = async (category = "science") => {
   newsContainer.innerHTML = "";
   await fetch(`https://inshorts.deta.dev/news?category=${category}`)
@@ -60,6 +51,17 @@ const getNews = async (category = "science") => {
       });
     });
 };
+
+getNews();
+
+const savedNews = [];
+const handleSavedNews = (savedItem) => {
+  savedNews.push(savedItem);
+  console.log(savedNews);
+  alert("News saved")
+  saveNews(savedItem);
+
+}
 
 const saveNews = (id) => {
   const newss = Array.from(document.querySelectorAll(".newsItem")).map(
@@ -98,5 +100,3 @@ loadSavedButton.addEventListener("click", loadSavedNews);
 loadNewsButton.addEventListener("click", () => {
   getNews(categorySelect.value);
 });
-
-getNews();
